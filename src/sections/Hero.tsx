@@ -12,7 +12,7 @@ export const Hero = () => {
       <div className="container">
         <div className='md:flex items-center'>
         <div className='md:w-[478px]'> 
-        <div className="text-sm inline-flex border border-[#222]/10 px-3 py-1 rounded-lg tracking-tight">Version 2.0 is here</div>
+        <div className="tag">Version 2.0 is here</div>
         <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">Pathway to productivity</h1>
         <p className="text-xl text-[#010D3E] tracking-tight mt-6">Boost your business with our intuitive software designed to streamline operations and increase productivity. Whether you're looking to scale or improve efficiency, our platform offers the tools you need to succeed with ease and innovation</p>
         <div className="flex gap-1 items-center mt-[30px]">
