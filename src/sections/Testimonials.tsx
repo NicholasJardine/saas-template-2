@@ -64,7 +64,49 @@ const testimonials = [
     username: "@casey09",
   },
 ];
+const firstColumn = testimonials.slice(0,3);
+const secondColumn = testimonials.slice(3,6);
+const thirdColumn = testimonials.slice(6,9);
+import Image from "next/image";
+import { twMerge } from "tailwind-merge";
+
+const TestimonialsColumn = (props: {className?: string; testimonials: typeof testimonials}) =>(
+  <div className={twMerge("flex flex-col gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]",props.className )}>
+  {props.testimonials.map(({text,imageSrc, name, username }) => (
+    <div className="card">
+      <div>{text}</div>
+      <div className="flex items-center gap-2 mt-5">
+        <Image src={imageSrc} alt={name} width={40} height={40} className="h-10 w-10 rounded-full"/>
+        <div className="flex flex-col">
+      <div className="font-medium tracking tight leading-5">{name}</div>
+      <div className="leading-5 tracking-tight">{username}</div>
+      </div>
+      </div>
+    </div>
+  ))}
+</div>
+)
 
 export const Testimonials = () => {
-  return null;
+  return (
+    <section className="bg-white py-0">
+      <div className="container">
+        <div className="section-heading">
+        <div className="flex justify-center">
+          
+        <div className="tag">Testimonials</div>
+        </div>
+        <h2 className="section-title">What our users say</h2>
+        <p className="section-description">From intuitive design to powerful features, our app has become an esential tool for users around the world.</p>
+      
+        </div>
+
+      <div className="flex justify-center gap-6">
+      <TestimonialsColumn testimonials={firstColumn}/>
+      <TestimonialsColumn className="hidden md:flex" testimonials={secondColumn}/>
+      <TestimonialsColumn className="hidden lg:flex" testimonials={thirdColumn}/>
+      </div> 
+      </div>
+    </section>
+  );
 };
